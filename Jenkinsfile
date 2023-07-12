@@ -1,30 +1,21 @@
-pipeline{
+pipeline {
     agent any
 
-    stages{
-        stage("build"){
-            steps{
-                echo 'building now!'
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
             }
         }
-    }
-        stages{
-        stage("test"){
-            steps{
-                echo 'testing now!'
+        stage('Test') {
+            steps {
+                echo 'Testing..'
             }
         }
-    }
-        stages{
-        stage("deploy"){
-            steps{
-                echo 'deploying now!'
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
-        }
-    }
-    post{
-        always{
-            emailext body: 'Summary' , subject: 'Pipeline Status', to: 'ishachoudhary521@gmail.com'
         }
     }
 }
